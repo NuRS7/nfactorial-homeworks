@@ -1,10 +1,17 @@
 def check_anagrams(a, b, c):
-    if sorted(a) == sorted(c) and sorted(b) == sorted(c):
+    a = a.lower()
+    b = b.lower()
+    c = c.lower()
+    if sorted(a) == sorted(b) and  sorted(c):
         return "Yes"
     else:
         return "No"
-    a = "aba"
-    b = "baa"
-    c = "aab"
-    result = check_anagrams(a, b, c)
-    print(result)
+
+# Пример использования
+
+a = "aBa"
+b = "aab"
+c = "baa"
+
+result = check_anagrams(a, b, c)
+print(result)
