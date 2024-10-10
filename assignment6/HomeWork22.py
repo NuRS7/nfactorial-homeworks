@@ -6,9 +6,7 @@ def check_anagrams(a, b, c):
         return "Yes"
     else:
         return "No"
-
-# Пример использования
-
+# по сути разница жок lowercase коскандыктан aBa болсын тауып береди
 a = "aBa"
 b = "aab"
 c = "baa"
