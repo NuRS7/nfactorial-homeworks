@@ -1,7 +1,9 @@
-import math
-
-
-a = int(input())
-b = int(input())
-c = a * a + b * b
-print(c)
+a = 10
+b = 30
+print(a+b)
+print(a*b)
+print(a/b)
+print(a//b)
+print(a%b)
+print(a**b)
+# указал все условии
