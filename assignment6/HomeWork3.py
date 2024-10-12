@@ -1,5 +1,11 @@
+# Exercise 3: string-length
+# Declare a string
+# Calculate the length of the string
+# Print the length
+
+
 RandomWord = "Nursultan"
 ss = len(RandomWord)
 print(ss)
-print(f"Длина строки - {ss} ")
-#EasyWin
+# Easy
+print(f"Длина строки - {ss}")
