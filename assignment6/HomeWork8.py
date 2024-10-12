@@ -4,4 +4,8 @@
 # Print the area
 
 
+width = 10
+height = 20
 
+s = width* height
+print(s)
