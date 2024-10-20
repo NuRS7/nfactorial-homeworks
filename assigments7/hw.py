@@ -276,10 +276,10 @@ count_characters("apple", "p") -> 2
 
 
 """
-
 def count_characters(s: str, c: str) -> int:
-    # write your code here
-    pass
+    return s.count(c)
+print(count_characters("hello world", "l"))
+print(count_characters("apple", "p"))
 
 
 """
@@ -322,9 +322,14 @@ sum_of_cubes(3) -> 36
 sum_of_cubes(4) -> 100
 """
 
+
 def sum_of_cubes(n: int) -> int:
-    # write your code here
-    pass
+    total = 0
+    for i in range(1, n+1):
+        total += i**3
+    return total
+print(sum_of_cubes(3))
+print(sum_of_cubes(4))
 
 
 """
@@ -337,10 +342,14 @@ is_perfect_square(9) -> True
 is_perfect_square(10) -> False
 """
 
+import math
 def is_perfect_square(n: int) -> bool:
-    # write your code here
-    pass
-
+    if n < 0:
+        return False
+    square = math.sqrt(n)
+    return square.is_integer()
+print(is_perfect_square(9))
+print(is_perfect_square(10))
 
 """
 Exercise-20: is_armstrong_number
@@ -353,5 +362,11 @@ is_armstrong_number(370) -> True
 """
 
 def is_armstrong_number(n: int) -> bool:
-    # write your code here
-    pass
+    str_n = str(n)
+    length = len(str_n)
+    result = 0
+    for i in str_n:
+        result += int(i) ** length
+    return result == n
+print(is_armstrong_number(153))
+print(is_armstrong_number(370))

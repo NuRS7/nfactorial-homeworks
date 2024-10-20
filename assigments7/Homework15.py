@@ -11,5 +11,6 @@ count_characters("apple", "p") -> 2
 """
 
 def count_characters(s: str, c: str) -> int:
-    # write your code here
-    pass
+    return s.count(c)
+print(count_characters("hello world", "l"))
+print(count_characters("apple", "p"))
