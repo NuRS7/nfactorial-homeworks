@@ -14,5 +14,5 @@ def lcm(a: int, b: int) -> int:
         if numbers % a == 0 and numbers % b == 0:
             return numbers
         numbers +=1
-print(lcm(5, 7))
+print(lcm(5, 7 ) )
 print(lcm(6, 8))

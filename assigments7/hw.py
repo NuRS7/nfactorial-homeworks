@@ -256,7 +256,7 @@ lcm(5, 7) -> 35
 lcm(6, 8) -> 24
 """
 def lcm(a: int, b: int) -> int:
-    numbers= max(a, b)
+    numbers= max(a, b,)
     while True:
         if numbers % a == 0 and numbers % b == 0:
             return numbers
