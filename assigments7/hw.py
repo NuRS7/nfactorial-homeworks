@@ -9,13 +9,12 @@ is_prime(10) -> False
 """
 
 def is_prime(n: int) -> bool:
-    if n < 1:
+    if n < 2:
         return False
     for i in range(2, int(n**0.5)+1):
         if n % i == 0:
             return False
-        return True
-    pass
+    return True
 print(is_prime(7))
 print(is_prime(10))
 
@@ -291,10 +290,10 @@ Example:
 digit_count(123) -> 3
 digit_count(4567) -> 4
 """
-
 def digit_count(n: int) -> int:
-    # write your code here
-    pass
+    return len(str(abs(n))) # абс минус сандар болмауы ушн
+print(digit_count(123))
+print(digit_count(4567))
 
 
 """
@@ -308,9 +307,15 @@ is_power_of_two(10) -> False
 """
 
 def is_power_of_two(n: int) -> bool:
-    # write your code here
-    pass
-
+    if n <= 0 :
+        return False
+    while n > 1:
+        if n % 2 != 0:
+            return False
+        n //= 2
+    return True
+print(is_power_of_two(8))
+print(is_power_of_two(10))
 
 """
 Exercise-18: sum_of_cubes

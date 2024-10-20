@@ -12,3 +12,4 @@ def digit_count(n: int) -> int:
     return len(str(abs(n))) # абс минус сандар болмауы ушн
 print(digit_count(123))
 print(digit_count(4567))
+print(digit_count(8))
