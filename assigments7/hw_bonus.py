@@ -10,8 +10,10 @@ count_substrings("aaaaaa", "aa") -> 3
 """
 
 def count_substrings(s: str, subs: str) -> int:
-    # write your code here
-    pass
+    a =s.count(subs)
+    return a
+print(count_substrings("ababab", "ab"))
+print(count_substrings("aaaaaa", "aa"))
 
 """
 💎 Exercise-2: find_smallest_divisor
@@ -24,9 +26,11 @@ find_smallest_divisor(49) -> 7
 """
 
 def find_smallest_divisor(n: int) -> int:
-    # write your code here
-    pass
-
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return i
+print(find_smallest_divisor(21))
+print(find_smallest_divisor(49))
 
 """
 💎 Exercise-3: check_divisible_by_any
