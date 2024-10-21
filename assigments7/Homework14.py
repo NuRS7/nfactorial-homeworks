@@ -9,10 +9,12 @@ lcm(6, 8) -> 24
 """
 
 def lcm(a: int, b: int) -> int:
-    numbers= max(a, b)
+    if a ==0 or b == 0:
+        return 0
+    numbers= max(a, b,)
     while True:
         if numbers % a == 0 and numbers % b == 0:
             return numbers
         numbers +=1
-print(lcm(5, 7 ) )
+print(lcm(5, 7))
 print(lcm(6, 8))
