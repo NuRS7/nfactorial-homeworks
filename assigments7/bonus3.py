@@ -11,4 +11,5 @@ check_divisible_by_any(23, "2 3 5") -> False
 """
 
 def check_divisible_by_any(n: int, divisors: str) -> bool:
-    for i in range(n):
+    bool = True
+    if
