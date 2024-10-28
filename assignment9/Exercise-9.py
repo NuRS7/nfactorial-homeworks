@@ -9,5 +9,11 @@ swap_dict({1: 'a', 2: 'b', 3: 'c'}) -> {'a': 1, 'b': 2, 'c': 3}
 """
 
 def swap_dict(d: dict) -> dict:
-    return dict((value, key) for key, value in d.items())
+    result_dict = dict()
+
+    for key, value in d.items():
+        if value not in result_dict:
+            result_dict[value] = key
+    return result_dict
+    pass
 print(swap_dict({1: 'a', 2: 'b', 3: 'c'}))

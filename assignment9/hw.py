@@ -7,12 +7,15 @@ Example:
 missing_elements([1, 2, 4, 6, 7]) -> [3, 5]
 """
 
+
 def missing_elements(my_list: list) -> list:
-    if not my_list:
-        return []
-    full_range=range(my_list[0], my_list[-1] + 1)
-    missing=[num for num in full_range if num not in my_list]
-    return missing
+    last_num=0
+    result=[]
+    for num in my_list:
+        if num != last_num + 1:
+            result.extend(list(range(last_num + 1, num)))
+        last_num=num
+    return result
 
 """
 Exercise-2: Count occurrences
@@ -105,7 +108,13 @@ swap_dict({1: 'a', 2: 'b', 3: 'c'}) -> {'a': 1, 'b': 2, 'c': 3}
 """
 
 def swap_dict(d: dict) -> dict:
-    return dict((value, key) for key, value in d.items())
+    result_dict = dict()
+
+    for key, value in d.items():
+        if value not in result_dict:
+            result_dict[value] = key
+    return result_dict
+    pass
 
 """
 Exercise-10: Subset check
