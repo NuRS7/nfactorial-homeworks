@@ -19,3 +19,4 @@ def compose(*funcs):
         return result
     return new_func
 print(compose(lambda x: x * 2, lambda x: x ** 2)(3))
+

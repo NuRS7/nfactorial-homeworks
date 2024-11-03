@@ -77,8 +77,11 @@ word_frequency('hello world hello') -> {'hello': 2, 'world': 1}
 """
 
 def word_frequency(my_string: str) -> dict:
-    return dict((word, my_string.count(word)) for word in my_string.split())
-
+    words = my_string.split()
+    frequency = {}
+    for word in words:
+        frequency[word] = frequency.get(word, 0) + 1
+    return frequency
 """
 Exercise-8: Count elements in range
 Write a function "count_in_range(my_list: list, start: int, end: int) -> int" that

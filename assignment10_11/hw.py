@@ -32,7 +32,7 @@ filter_even_numbers([1, 2, 3, 4, 5, 6, 7, 8]) -> [1, 3, 5, 7]
 """
 
 def filter_even_numbers(numbers: list) -> list:
-    pass
+    return list(filter(lambda x: x % 2 != 0, numbers))
 
 """
 Exercise-4: Recursive Factorial
@@ -111,8 +111,15 @@ Example:
 factorial_reduce(5) -> 120
 """
 
-def factorial_reduce(n: int) -> int:
-    pass
+from functools import reduce
+def partial(func, *args):
+    def new_func(*new_args):
+        return func(*args, *new_args)
+    return new_func
+
+def factorial_reduce(n):
+    return reduce(lambda x, y: x * y, range(1, n + 1))
+
 
 """
 Exercise-9: Function Memoization
@@ -125,10 +132,20 @@ memoized_function = memoize(expensive_function)
 memoized_function(5)  # -> This will take some time to compute
 memoized_function(5)  # -> This will return the cached result
 """
+from functools import lru_cache
+
+@lru_cache(maxsize=None)
 
 def memoize(func):
-    pass
-
+    cache = {}
+    def memoized_func(*args):
+        if args in cache:
+            return cache[args]
+        result = func(*args)
+        cache[args] = result
+        return result
+    return memoized_func
+print(memoize(lambda x: x ** x)(5))
 """
 Exercise-10: Custom Reduce Function
 Implement your own version of Python's 'reduce' function "my_reduce(func, iterable, initializer=None)".
@@ -138,7 +155,7 @@ my_reduce(lambda x, y: x*y, [1, 2, 3, 4]) -> 24
 """
 
 def my_reduce(func, iterable, initializer=None):
-    pass
+    return reduce(func, iterable)
 
 """
 Exercise-11: Lambda Function Sort
@@ -149,7 +166,7 @@ sort_by_last_letter(['apple', 'banana', 'cherry', 'date']) -> ['banana', 'apple'
 """
 
 def sort_by_last_letter(words: list) -> list:
-    pass
+    return sorted(words, key=lambda x: x[-1])
 
 """
 Exercise-12: Recursive List Reversal
@@ -160,8 +177,7 @@ recursive_reverse([1, 2, 3, 4, 5]) -> [5, 4, 3, 2, 1]
 """
 
 def recursive_reverse(my_list: list) -> list:
-    pass
-
+    return list(map(lambda x: x, my_list[::-1]))
 """
 Exercise-13: Decorator for Function Counting
 Write a decorator function "count_calls(func)" that counts the number of times a function is called.
@@ -177,7 +193,18 @@ test_function()
 """
 
 def count_calls(func):
-    pass
+ def wrapper(*args, **kwargs):
+    wrapper.count += 1
+    return func(*args, **kwargs)
+ wrapper.count = 0
+ return wrapper
+
+@count_calls
+def test_function():
+    return
+
+test_function()
+test_function()
 
 """
 Exercise-14: Use reduce to Find the Maximum Number
@@ -186,9 +213,9 @@ Write a function "find_max(numbers: list) -> int" that uses reduce to find the m
 Example:
 find_max([1, 2, 3, 4, 5]) -> 5
 """
-
+from functools import reduce
 def find_max(numbers: list) -> int:
-    pass
+    return reduce(max, numbers)
 
 """
 Exercise-15: Use filter and lambda to Remove Elements
@@ -199,7 +226,11 @@ remove_elements([1, 2, 3, 2, 4, 2, 5], 2) -> [1, 3, 4, 5]
 """
 
 def remove_elements(my_list: list, element):
-    pass
+    filtered_list = []
+    for x in my_list:
+        if x != element:
+            filtered_list.append(x)
+    return filtered_list
 
 """
 Exercise-16: Higher-Order Function for Repeats
@@ -211,8 +242,9 @@ repeat_three_times('hello') -> 'hellohellohello'
 """
 
 def repeat(n: int):
-    pass
-
+    def repeat_func(my_str: str):
+        return my_str * n
+    return repeat_func
 """
 Exercise-17: Recursive List Sum
 Write a function "recursive_sum(my_list: list) -> int" that recursively computes the sum of a list of integers.
@@ -222,7 +254,10 @@ recursive_sum([1, 2, 3, 4, 5]) -> 15
 """
 
 def recursive_sum(my_list: list) -> int:
-    pass
+    if len(my_list) == 0:
+        return 0
+    else:
+        return my_list[0] + recursive_sum(my_list[1:])
 
 """
 Exercise-18: Map with Multiple Lists
@@ -231,6 +266,5 @@ Write a function "add_two_lists(list1: list, list2: list) -> list" that uses `ma
 Example:
 add_two_lists([1, 2, 3], [4, 5, 6]) -> [5, 7, 9]
 """
-
 def add_two_lists(list1: list, list2: list) -> list:
-    pass
+    return list(map(lambda x,y: x+y, list1, list2))
