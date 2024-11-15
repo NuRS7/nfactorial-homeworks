@@ -8,9 +8,9 @@ Use a list comprehension to generate the initial list of numbers, and another to
 Example:
 sieve_of_eratosthenes(30) -> [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
 """
+from typing import List
 def sieve_of_eratosthenes(n: int) -> List[int]:
-    pass
-
+    return [i for i in range(2, n) if all(i % j != 0 for j in range(2, i))]
 """
 Exercise-2: List Comprehension with Nested Loop and Condition
 Write a function "triple_combinations(lst: List[int]) -> List[Tuple[int, int, int]]" that returns all unique triple combinations (i, j, k) 
@@ -19,8 +19,9 @@ from the given list that satisfy the condition i < j < k. Use a list comprehensi
 Example:
 triple_combinations([1, 2, 3, 4]) -> [(1, 2, 3), (1, 2, 4), (1, 3, 4), (2, 3, 4)]
 """
+from typing import List, Tuple
 def triple_combinations(lst: List[int]) -> List[Tuple[int, int, int]]:
-    pass
+    return [(i, j, k) for i in lst for j in lst for k in lst if i < j < k]
 
 """
 Exercise-3: Nested Dictionary Comprehension
@@ -31,8 +32,9 @@ In the inner dictionary, the keys are numbers from 1 to 'n' and the values are t
 Example:
 dict_table(3) -> {1: {1: 1, 2: 2, 3: 3}, 2: {1: 2, 2: 4, 3: 6}, 3: {1: 3, 2: 6, 3: 9}}
 """
+from typing import Dict
 def dict_table(n: int) -> Dict[int, Dict[int, int]]:
-    pass
+    return {i: {j: i * j for j in range(1, n + 1)} for i in range(1, n + 1)}
 
 """
 Exercise-4: Generator of Generators
@@ -42,9 +44,13 @@ Each of these generators yields numbers from 1 to 'n'.
 Example:
 list(map(list, generators(3))) -> [[1, 2, 3], [1, 2, 3], [1, 2, 3]]
 """
+from typing import Generator
 def generators(n: int) -> Generator[Generator[int, None, None], None, None]:
-    pass
-
+    for _ in range(n):
+        def gen():
+            for i in range(1, n + 1):
+                yield i
+        yield gen()
 """
 Exercise-5: Nested List Comprehension to Compute Cartesian Product
 Write a function "cartesian_product(set_a: List[Any], set_b: List[Any]) -> List[Tuple[Any, Any]]" that uses a nested list comprehension to compute the Cartesian product of two sets. The Cartesian product of two sets is the set of all ordered pairs (a, b) where a is in set_a and b is in set_b.
@@ -52,5 +58,6 @@ Write a function "cartesian_product(set_a: List[Any], set_b: List[Any]) -> List[
 Example:
 cartesian_product([1, 2], ['a', 'b']) -> [(1, 'a'), (1, 'b'), (2, 'a'), (2, 'b')]
 """
+from typing import List, Any, Tuple
 def cartesian_product(set_a: List[Any], set_b: List[Any]) -> List[Tuple[Any, Any]]:
-    pass
+    return [(a, b) for a in set_a for b in set_b]
