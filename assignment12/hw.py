@@ -140,10 +140,15 @@ Write a function "factorials_gen(n: int) -> Generator[int]" that uses a generato
 Example:
 list(factorials_gen(5)) -> [1, 2, 6, 24, 120]
 """
-from math import factorial
 from typing import Generator
 
 def factorials_gen(n: int) -> Generator[int, None, None]:
+    def factorial(x):
+        result=1
+        for i in range(1, x):
+            result*=i
+        return result
+
     return (factorial(i) for i in range(1, n + 1))
 """
 Exercise-14: Dictionary Comprehension to Map Strings to Lengths
