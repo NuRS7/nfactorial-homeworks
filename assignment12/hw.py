@@ -8,7 +8,7 @@ Example:
 squares(5) -> [0, 1, 4, 9, 16]
 """
 def squares(n: int):
-    pass
+    return [i**2 for i in range(n)]
 
 """
 Exercise-2: Set Comprehension with Filtering
@@ -18,7 +18,7 @@ Example:
 unique_squares([1, 2, 2, 3, 3, 3, 4, 4, 4, 4]) -> {1, 4, 9, 16}
 """
 def unique_squares(numbers: List[int]) -> Set[int]:
-    return sorted({x**2 for x in set(numbers)})
+    return {x**2 for x in set(numbers)}
 
 """
 Exercise-3: Dictionary Comprehension to Count Characters
@@ -91,8 +91,13 @@ Write a function "fibonacci_gen(n: int) -> Generator[int]" that uses a generator
 Example:
 list(fibonacci_gen(10)) -> [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 """
-def fibonacci_gen(n: int) :
-    pass
+from typing import Generator
+
+def fibonacci_gen(n: int) -> Generator[int, None, None]:
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
 
 """
 Exercise-10: Dictionary Comprehension to Invert a Dictionary
@@ -135,10 +140,11 @@ Write a function "factorials_gen(n: int) -> Generator[int]" that uses a generato
 Example:
 list(factorials_gen(5)) -> [1, 2, 6, 24, 120]
 """
+from math import factorial
+from typing import Generator
 
 def factorials_gen(n: int) -> Generator[int, None, None]:
-    pass
-
+    return (factorial(i) for i in range(1, n + 1))
 """
 Exercise-14: Dictionary Comprehension to Map Strings to Lengths
 Write a function "str_lengths(strings: List[str]) -> Dict[str, int]" that uses a dictionary comprehension to map strings to their lengths.
@@ -179,7 +185,7 @@ group_by_length(['hello', 'world', 'python', 'is', 'fun']) -> {5: ['hello', 'wor
 """
 from typing import Dict, List
 def group_by_length(words: List[str]) -> Dict[int, List[str]]:
-    return {len(word): [word] for word in words}
+    return {length: [word for word in words if len(word) == length] for length in set(len(word) for word in words)}
 
 """
 Exercise-18: Set Comprehension to Find Common Elements
@@ -208,5 +214,6 @@ Write a function "list_to_dict(lst: List[Any]) -> Dict[int, Any]" that uses a di
 Example:
 list_to_dict(['a', 'b', 'c']) -> {0: 'a', 1: 'b', 2: 'c'}
 """
+from typing import List, Any, Dict
 def list_to_dict(lst: List[Any]) -> Dict[int, Any]:
-    pass
+    return {i: lst[i] for i in range(len(lst))}

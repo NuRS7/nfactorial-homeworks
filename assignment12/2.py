@@ -9,5 +9,5 @@ from typing import List, Set
 
 
 def unique_squares(numbers: List[int]) -> Set[int]:
-    return sorted({x**2 for x in set(numbers)})
+    return {x**2 for x in set(numbers)}
 print(unique_squares([1, 2, 2, 3, 3, 3, 4, 4, 4, 4]))
