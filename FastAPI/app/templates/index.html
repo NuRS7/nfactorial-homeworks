@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>VoxPop</title>
+</head>
+<body>
+    <h1>VoxPop - Публичная лента комментариев</h1>
+
+    <form action="/add" method="post">
+        <textarea name="text" placeholder="Введите ваш комментарий..." required></textarea>
+        <br>
+        <label>
+            <input type="radio" name="category" value="positive" checked> Позитивный
+        </label>
+        <label>
+            <input type="radio" name="category" value="negative"> Негативный
+        </label>
+        <br>
+        <button type="submit">Добавить комментарий</button>
+    </form>
+
+    <h2>Публичная лента:</h2>
+    <ul>
+        {% for comment in comments %}
+        <li>
+            <strong>{{ comment.category|capitalize }}:</strong> {{ comment.text }}
+        </li>
+        {% endfor %}
+    </ul>
+
+<div>
+    {% if page > 1 %}
+    <a href="/?page={{ page - 1 }}">Назад</a>
+    {% endif %}
+    {% if page < total_pages %}
+    <a href="/?page={{ page + 1 }}">Вперёд</a>
+    {% endif %}
+</div>
+
+</body>
+</html>
