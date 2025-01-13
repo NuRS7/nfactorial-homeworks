@@ -13,8 +13,8 @@ cars=[
 ]
 
 users=[
-    {"id": 1, "email": "test@test.com", "first_name": "Nursultan", "last_name": "Yerbakytuly", "username": "deadly_knight95"},
-    {"id": 2, "email": "Zhana.salamanova@gmail.com", "first_name": "Zhanna", "last_name": "Salamanova", "username": "jane_doe"},
+    {"id": 1, "email": "test@test.com", "first_name": "Nursultan", "last_name": "Yerbakytuly", "username": "nurs123"},
+    {"id": 2, "email": "Zhana.salamanova@gmail.com", "first_name": "Zhanna", "last_name": "Salamanova", "username": "zhanna_s"},
     {"id": 3, "email": "john.doe@example.com", "first_name": "John", "last_name": "Doe", "username": "john_doe"},
 
 ]
