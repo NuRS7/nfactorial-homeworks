@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить книгу</title>
+</head>
+<body>
+    <h1>Добавить книгу</h1>
+    <form action="/books" method="post">
+        <label>Название: <input type="text" name="title" required></label><br>
+        <label>Автор: <input type="text" name="author" required></label><br>
+        <label>Год издания: <input type="number" name="year" required></label><br>
+        <label>Количество страниц: <input type="number" name="total_pages" required></label><br>
+        <label>Жанр: <input type="text" name="genre" required></label><br>
+        <button type="submit">Создать</button>
+    </form>
+    <a href="/books">Назад к списку</a>
+</body>
+</html>
